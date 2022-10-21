@@ -1,0 +1,36 @@
+{
+  "manifest_version": 2,
+  "name"            : "ReportMaster for Travian",
+  "version"         : "1.0",
+  "description"     : "Inject styles and scripts into pages",
+
+  "background": {
+    "scripts": [
+      "background/file.js",
+      "background/load.js",
+      "background/index.js"
+    ],"persistent": false
+  },
+  "permissions": [
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "content/index.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+
+  "icons": {
+    "16"  : "images/icon.png",
+    "48"  : "images/icon.png",
+    "128" : "images/icon.png"
+  },
+    "externally_connectable": {
+    "matches": ["*://tx3.anglosphere.travian.com/*"]
+  }
+}
